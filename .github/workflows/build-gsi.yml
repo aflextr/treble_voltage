@@ -27,14 +27,14 @@ jobs:
       run: |
         git lfs install
         git push -f
-        mkdir -p src/
+        sudo mkdir -p src/
         pushd src/
          sudo repo init -u https://github.com/VoltageOS/manifest.git -b 14 --depth=1
         popd
     - name: copy manifest config
       run: |
-        mkdir -p .repo/local_manifests
-        cp -v ../configs/*.xml .repo/local_manifests/
+        sudo mkdir -p .repo/local_manifests
+        sudo cp -v ../configs/*.xml .repo/local_manifests/
       working-directory: src
     - name: perform full sources sync (with auto retry)
       uses: nick-fields/retry@v3
