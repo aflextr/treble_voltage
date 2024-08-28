@@ -23,9 +23,10 @@ jobs:
     - name: install depend
       run: |
         sudo apt update && sudo apt install -y git-core gnupg flex bc bison git-lfs repo build-essential zip curl zlib1g-dev libc6-dev-i386 libncurses5 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig python3 clang git nano android-sdk-platform-tools openjdk-17-jdk jq libncurses5-dev libncursesw5-dev
-        git lfs install
     - name: clone rom manifest
       run: |
+        git lfs install
+        git push -f
         mkdir -p src/
         pushd src/
           repo init -u https://github.com/VoltageOS/manifest.git -b 14 --depth=1 --git-lfs
