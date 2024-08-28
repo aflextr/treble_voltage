@@ -29,7 +29,7 @@ jobs:
         git push -f
         mkdir -p src/
         pushd src/
-          repo init -u https://github.com/VoltageOS/manifest.git -b 14 --depth=1
+         sudo repo init -u https://github.com/VoltageOS/manifest.git -b 14 --depth=1
         popd
     - name: copy manifest config
       run: |
@@ -41,7 +41,7 @@ jobs:
       with:
         command: |
           pushd src/
-            repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
+           sudo repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
           popd
         max_attempts: 3
         retry_on: error
